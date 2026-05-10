@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =============================================
+         SEO BÁSICO
+         title: aparece en la pestaña del navegador y en Google
+         description: el texto que Google muestra debajo del título en resultados
+         Para editar: cambiar el contenido de cada meta
+    ============================================= -->
+    <title>Brusco Estudio — Comunicación y Diseño en Uruguay</title>
+    <meta name="description" content="Brusco Estudio es un estudio de comunicación uruguayo especializado en gestión de marca, diseño visual, redes sociales y producción audiovisual.">
+    <meta name="keywords" content="estudio diseño Uruguay, gestión de marca Uruguay, redes sociales Uruguay, diseño gráfico Colonia, branding Uruguay, comunicación visual">
+    <meta name="author" content="Brusco Estudio">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bruscoestudio.com/">
+
+    <!-- =============================================
+         OPEN GRAPH
+         Controla cómo se ve el link cuando lo compartís
+         en WhatsApp, Instagram, LinkedIn, Facebook
+         og:image → crear imagen de 1200x630px y guardarla en assets/og-imagen.jpg
+    ============================================= -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://bruscoestudio.com/">
+    <meta property="og:title"       content="Brusco Estudio — Comunicación y Diseño">
+    <meta property="og:description" content="Estudio de comunicación especializado en gestión de marca, diseño visual y contenido digital.">
+    <meta property="og:image"       content="https://bruscoestudio.com/assets/og-imagen.jpg">
+    <meta property="og:locale"      content="es_UY">
+    <meta property="og:site_name"   content="Brusco Estudio">
+
+    <!-- =============================================
+         TWITTER / X CARDS
+         Igual que Open Graph pero específico para Twitter/X
+    ============================================= -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="Brusco Estudio — Comunicación y Diseño">
+    <meta name="twitter:description" content="Estudio de comunicación especializado en gestión de marca, diseño visual y contenido digital.">
+    <meta name="twitter:image"       content="https://bruscoestudio.com/assets/og-imagen.jpg">
+
+    <!-- =============================================
+         JSON-LD / SCHEMA.ORG
+         Datos estructurados que Google lee para entender
+         qué es el sitio. Aparece en resultados enriquecidos.
+         Para editar: cambiar name, description, url, sameAs (redes)
+    ============================================= -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Brusco Estudio",
+        "url": "https://bruscoestudio.com",
+        "logo": "https://bruscoestudio.com/assets/favicon.svg",
+        "description": "Estudio de comunicación especializado en gestión de marca, diseño visual, redes sociales y producción audiovisual.",
+        "foundingDate": "2024",
+        "founders": [
+            { "@type": "Person", "name": "Nicolás Collazo" },
+            { "@type": "Person", "name": "Allen Capellino" }
+        ],
+        "areaServed": "Uruguay",
+        "serviceType": [
+            "Gestión de redes sociales",
+            "Diseño visual",
+            "Producción audiovisual",
+            "Gestión de marca"
+        ],
+        "sameAs": [
+            "https://www.behance.net/bruscoestudio"
+        ]
+    }
+    </script>
+
+    <!-- =============================================
+         FAVICON
+         El ícono que aparece en la pestaña del navegador
+         favicon.svg → versión vectorial (navegadores modernos)
+    ============================================= -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- Preconnect: le avisa al navegador que se conecte
+         a Fontshare antes de que lo necesite → carga más rápido -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- =============================================
+         HEADER / NAVEGACIÓN
+         Para modificar los textos del menú:
+         editar las etiquetas <a> dentro de <nav>
+         Para cambiar el tamaño del logo: editar width y height del <svg>
+    ============================================= -->
+    <header class="header" id="header">
+        <div class="header__inner">
+
+            <!-- Logo: SVG inline. Si querés usar un archivo externo:
+                 reemplazar todo el <svg> por <img src="assets/logo.svg" alt="Brusco"> -->
+            <a href="#" class="header__logo">
+                <svg width="58" height="36" viewBox="0 0 332 207" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M271.006 87.5316L255.914 111.678L223.618 88.4371L242.03 66.7051L241.125 63.6868L213.96 56.7446L226.033 19.0155L252.896 30.4851L255.311 28.3723L252.896 0L292.738 0L290.323 28.3723L292.738 30.4851L319.903 19.3173L331.674 57.0464L303.906 63.6868L302.698 66.7051L321.412 88.4371L288.814 111.98L274.628 87.5316H271.006Z" fill="#F6F6F6"/>
+                    <path d="M135.523 206.455L-7.39098e-06 206.455L-7.39098e-06 4.22656L128.581 4.22656C143.27 4.22656 155.444 6.13817 165.103 9.96139C174.761 13.5834 182.005 19.0164 186.835 26.2604C191.664 33.5044 194.079 42.4587 194.079 53.1235C194.079 66.0017 190.255 76.6665 182.609 85.1178C175.164 93.5691 162.185 98.1972 143.673 99.0021V102.02C163.996 102.825 178.987 107.554 188.646 116.207C198.505 124.859 203.435 136.228 203.435 150.314C203.435 161.582 201.121 171.442 196.493 179.893C191.865 188.345 184.521 194.884 174.459 199.512C164.6 204.141 151.621 206.455 135.523 206.455ZM56.4428 127.374V155.445L128.279 155.445C135.121 155.445 139.749 154.539 142.163 152.728C144.779 150.716 146.087 146.893 146.087 141.259C146.087 135.625 144.88 131.902 142.465 130.091C140.051 128.28 135.322 127.374 128.279 127.374H56.4428ZM56.4428 55.2363L56.4428 80.8921H122.544C128.38 80.8921 132.303 79.9866 134.316 78.1756C136.328 76.1634 137.334 72.8433 137.334 68.2152C137.334 63.587 136.026 60.2669 133.41 58.2547C130.996 56.2424 126.87 55.2363 121.035 55.2363L56.4428 55.2363Z" fill="#F6F6F6"/>
+                </svg>
+            </a>
+
+            <!-- Links de navegación: el href="#seccion" scrollea suavemente hasta esa sección -->
+            <nav class="header__nav">
+                <a href="#nosotros"  class="nav__link">Nosotros</a>
+                <a href="#proyectos" class="nav__link">Proyectos</a>
+                <a href="#contacto"  class="nav__link">Contacto</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =============================================
+         SECCIÓN NOSOTROS / HERO
+         Contiene: frase animada, descripción y servicios
+    ============================================= -->
+    <section class="nosotros" id="nosotros">
+        <div class="nosotros__inner">
+
+            <!-- Frase principal con palabra que rota
+                 Para editar el texto estático: modificar las etiquetas .headline__static
+                 Para editar las palabras que rotan: ir a script.js → array palabrasAnimadas -->
+            <div class="nosotros__headline">
+                <div class="headline__line">
+                    <span class="headline__static">El cambio</span>
+                </div>
+                <div class="headline__line headline__line--animated">
+                    <span id="palabra-animada">BRUSCO</span>
+                </div>
+                <div class="headline__line">
+                    <span class="headline__static">que tu marca necesita.</span>
+                </div>
+            </div>
+
+            <!-- Descripción del estudio
+                 Para editar: modificar el texto dentro del <p> -->
+            <div class="nosotros__bio">
+                <p class="bio__text">
+                    Somos un estudio de comunicación fundado por <strong>Nicolás Collazo</strong> y <strong>Allen Capellino</strong>.
+                    Trabajamos en la gestión mensual de marcas: desde la estrategia visual hasta la producción de contenido.
+                    Brusco nace de la convicción de que una marca no se construye de golpe — se construye en movimiento.
+                </p>
+            </div>
+
+            <!-- Servicios
+                 Para agregar un servicio: duplicar un bloque <div class="servicio-card">
+                 Para quitar uno: eliminar el bloque completo -->
+            <div class="nosotros__servicios">
+
+                <div class="servicio-card">
+                    <span class="servicio-card__titulo">Gestión de Redes</span>
+                    <span class="servicio-card__desc">Estrategia y publicación de contenido mensual</span>
+                </div>
+
+                <div class="servicio-card">
+                    <span class="servicio-card__titulo">Diseño Visual</span>
+                    <span class="servicio-card__desc">Piezas gráficas para todos los formatos</span>
+                </div>
+
+                <div class="servicio-card">
+                    <span class="servicio-card__titulo">Audiovisual</span>
+                    <span class="servicio-card__desc">Video, reels y contenido en movimiento</span>
+                </div>
+
+                <div class="servicio-card">
+                    <span class="servicio-card__titulo">Gestión de Marca</span>
+                    <span class="servicio-card__desc">Identidad, tono y dirección estratégica</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         MARQUEE / LOGOS DE CLIENTES
+         Para agregar un logo: duplicar un .marquee__item dentro de #marquee-group
+         Si usás imágenes: <div class="marquee__item"><img src="assets/logo-cliente.svg"></div>
+         Para cambiar la velocidad: editar script.js → línea con MARQUEE_DURATION
+    ============================================= -->
+    <div class="marquee-section" id="clientes">
+        <div class="marquee__track">
+            <div class="marquee__belt">
+
+                <!-- Grupo original — el JS crea automáticamente una copia para el loop -->
+                <div class="marquee__group" id="marquee-group">
+                    <div class="marquee__item"><img src="assets/gcclogo.svg" alt="Cliente"></div>
+                    <span class="marquee__sep">✦</span>
+                    <div class="marquee__item"><img src="assets/sumlogo.svg" alt="Cliente"></div>
+                    <span class="marquee__sep">✦</span>
+                    <div class="marquee__item"><img src="assets/gcclogo.svg" alt="Cliente"></div>
+                    <span class="marquee__sep">✦</span>
+                    <div class="marquee__item"><img src="assets/sumlogo.svg" alt="Cliente"></div>
+                    <span class="marquee__sep">✦</span>
+                    <div class="marquee__item"><img src="assets/gcclogo.svg" alt="Cliente"></div>
+                    <span class="marquee__sep">✦</span>
+                    <div class="marquee__item"><img src="assets/sumlogo.svg" alt="Cliente"></div>
+                    <span class="marquee__sep">✦</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =============================================
+         SECCIÓN PROYECTOS
+         Para agregar un proyecto:
+           1. Duplicar un bloque <article class="proyecto-card">
+           2. Cambiar href a "proyecto-nombre.html"
+           3. Cambiar src de la imagen por la portada del proyecto
+           4. Cambiar los textos de nombre y tipo
+         Imagen recomendada: 800 × 1000 px (proporción 4:5)
+    ============================================= -->
+    <section class="proyectos" id="proyectos">
+        <div class="proyectos__inner">
+
+            <p class="section__label">Proyectos</p>
+
+            <div class="proyectos__grid">
+
+                <!-- PROYECTO 1 -->
+                <article class="proyecto-card" style="--card-color: #480102">
+                    <a href="proyecto-guarderia-canina.html" class="proyecto-card__link">
+                        <div class="proyecto-card__img-wrap">
+                            <!-- Reemplazar src por la portada del proyecto -->
+                            <img src="assets/portada.gif" alt="Guardería Canina" class="proyecto-card__img" loading="lazy">
+                            <div class="proyecto-card__overlay">
+                                <span class="proyecto-card__nombre">Guardería Canina Colonia</span>
+                                <span class="proyecto-card__tipo">Identidad Visual</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- PROYECTO 2 -->
+                <article class="proyecto-card" style="--card-color: #42A8B7">
+                    <a href="proyecto-sum-impresion.html" class="proyecto-card__link">
+                        <div class="proyecto-card__img-wrap">
+                            <img src="assets/logosum.png" alt="Proyecto 2" class="proyecto-card__img" loading="lazy">
+                            <div class="proyecto-card__overlay">
+                                <span class="proyecto-card__nombre">Sum Impresión Digital</span>
+                                <span class="proyecto-card__tipo">Identidad Visual</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- PROYECTO 3 -->
+                <article class="proyecto-card">
+                    <a href="proyecto-3.html" class="proyecto-card__link">
+                        <div class="proyecto-card__img-wrap">
+                            <img src="assets/proyecto-3-portada.jpg" alt="Proyecto 3" class="proyecto-card__img" loading="lazy">
+                            <div class="proyecto-card__overlay">
+                                <span class="proyecto-card__nombre">Nombre Proyecto</span>
+                                <span class="proyecto-card__tipo">Redes Sociales</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- PROYECTO 4 -->
+                <article class="proyecto-card">
+                    <a href="proyecto-4.html" class="proyecto-card__link">
+                        <div class="proyecto-card__img-wrap">
+                            <img src="assets/proyecto-4-portada.jpg" alt="Proyecto 4" class="proyecto-card__img" loading="lazy">
+                            <div class="proyecto-card__overlay">
+                                <span class="proyecto-card__nombre">Nombre Proyecto</span>
+                                <span class="proyecto-card__tipo">Audiovisual</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         SECCIÓN CONTACTO
+         Para conectar el formulario a un email real:
+           1. Crear cuenta gratuita en formspree.io
+           2. Crear un nuevo form, copiar el ID que te dan
+           3. Reemplazar el action="" por: action="https://formspree.io/f/TU_ID"
+           4. Borrar el bloque de JS marcado con "DEMO" en script.js
+         Para modificar campos: editar los .form__group dentro del <form>
+    ============================================= -->
+    <section class="contacto" id="contacto">
+        <div class="contacto__inner">
+
+            <div class="contacto__header">
+                <p class="section__label">Contacto</p>
+                <!-- Subtítulo: editar el texto aquí -->
+                <h2 class="contacto__titulo">Contanos sobre tu marca.</h2>
+            </div>
+
+            <!-- FORMULARIO
+                 method="POST" ya está listo para Formspree
+                 action="" → reemplazar con tu URL de Formspree -->
+            <form class="contacto__form" id="contacto-form" action="https://formspree.io/f/xpqbogzo" method="POST">
+
+                <div class="form__row">
+
+                    <!-- Campo Nombre -->
+                    <div class="form__group">
+                        <label class="form__label" for="nombre">Nombre</label>
+                        <input class="form__input" type="text" id="nombre" name="nombre"
+                               placeholder="Tu nombre" required>
+                    </div>
+
+                    <!-- Campo Email -->
+                    <div class="form__group">
+                        <label class="form__label" for="email">Email</label>
+                        <input class="form__input" type="email" id="email" name="email"
+                               placeholder="tu@email.com" required>
+                    </div>
+
+                </div>
+
+                <div class="form__row">
+
+                    <!-- Campo Empresa / Marca -->
+                    <div class="form__group">
+                        <label class="form__label" for="empresa">Empresa / Marca</label>
+                        <input class="form__input" type="text" id="empresa" name="empresa"
+                               placeholder="Nombre de tu marca">
+                    </div>
+
+                    <!-- Campo Tipo de proyecto
+                         Para agregar/quitar opciones: editar los <option> dentro del <select> -->
+                    <div class="form__group">
+                        <label class="form__label" for="servicio">Tipo de proyecto</label>
+                        <select class="form__input form__select" id="servicio" name="servicio">
+                            <option value="" disabled selected>Seleccioná una opción</option>
+                            <option value="redes">Gestión mensual de redes</option>
+                            <option value="visual">Identidad Visual</option>
+                            <option value="audiovisual">Creación de contenido</option>
+                            <option value="marca">Diseño Web</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- Campo Mensaje -->
+                <div class="form__group form__group--full">
+                    <label class="form__label" for="mensaje">Mensaje</label>
+                    <textarea class="form__input form__textarea" id="mensaje" name="mensaje"
+                              placeholder="Contanos sobre tu proyecto..." required></textarea>
+                </div>
+
+                <!-- Botón de envío -->
+                <div class="form__submit-wrap">
+                    <button class="form__submit" type="submit">Enviar mensaje</button>
+                </div>
+
+            </form>
+
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         FOOTER
+         Para editar el texto: modificar el contenido de .footer__copy
+    ============================================= -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <span class="footer__copy">© 2026 Brusco Estudio. Todos los derechos reservados.</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
