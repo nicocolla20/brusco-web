@@ -115,28 +115,40 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 
 /* =============================================
-   5. TRANSICIÓN DE COLOR — sección Proyectos
-   Detecta cuándo la sección entra y sale del viewport
-   y agrega/quita la clase .modo-blanco en el body.
-   La transición visual la maneja el CSS.
+   5. TRANSICIÓN DE COLOR — Proyectos (blanco) y Contacto (oscuro)
+   Coordina dos observers para que cada sección tenga su color.
    Para ajustar qué tan pronto se activa: editar threshold (0 a 1)
    ============================================= */
+let proyectosVisible = false;
+let contactoVisible  = false;
+
+function actualizarFondo() {
+    if (contactoVisible) {
+        document.body.classList.remove('modo-blanco');
+        document.body.classList.add('modo-oscuro');
+    } else if (proyectosVisible) {
+        document.body.classList.remove('modo-oscuro');
+        document.body.classList.add('modo-blanco');
+    } else {
+        document.body.classList.remove('modo-blanco', 'modo-oscuro');
+    }
+}
+
 const seccionProyectos = document.getElementById('proyectos');
+const seccionContacto  = document.getElementById('contacto');
 
 if (seccionProyectos) {
-    const observadorColor = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                document.body.classList.add('modo-blanco');
-            } else {
-                document.body.classList.remove('modo-blanco');
-            }
-        });
-    }, {
-        threshold: 0.08 // se activa cuando el 8% de la sección es visible en pantalla
-    });
+    new IntersectionObserver(entries => {
+        proyectosVisible = entries[0].isIntersecting;
+        actualizarFondo();
+    }, { threshold: 0.08 }).observe(seccionProyectos);
+}
 
-    observadorColor.observe(seccionProyectos);
+if (seccionContacto) {
+    new IntersectionObserver(entries => {
+        contactoVisible = entries[0].isIntersecting;
+        actualizarFondo();
+    }, { threshold: 0.08 }).observe(seccionContacto);
 }
 
 

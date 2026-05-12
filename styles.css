@@ -23,6 +23,7 @@
 :root {
     --azul:          #2540D9;
     --blanco:        #F6F6F6;
+    --oscuro:        #1a1444;
     --font:          'Clash Display', sans-serif;
     --header-h:      76px;
     --pad-x:         clamp(24px, 8vw, 120px);
@@ -62,9 +63,19 @@ body.modo-blanco {
 /* Secciones que siempre mantienen el fondo azul */
 .nosotros,
 .marquee-section,
-.contacto,
 .footer {
     background-color: var(--azul);
+}
+
+/* Fondo oscuro — sección Contacto */
+body.modo-oscuro {
+    background-color: var(--oscuro);
+}
+
+/* Header al hacer scroll en modo oscuro */
+body.modo-oscuro .header.scrolled {
+    background: rgba(26, 20, 68, 0.85);
+    border-bottom-color: rgba(246, 246, 246, 0.08);
 }
 
 /* Header en modo blanco: texto y logo cambian a azul */
