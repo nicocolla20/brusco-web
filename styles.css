@@ -62,8 +62,7 @@ body.modo-blanco {
 
 /* Secciones que siempre mantienen el fondo azul */
 .nosotros,
-.marquee-section,
-.footer {
+.marquee-section {
     background-color: var(--azul);
 }
 
@@ -633,7 +632,7 @@ a {
 
 /* Opciones: fondo azul explícito para que no queden grises */
 .form__select option {
-    background: var(--azul);
+    background: var(--oscuro);
     color: var(--blanco);
 }
 
@@ -653,7 +652,7 @@ a {
 .form__submit {
     display: inline-block;
     background: var(--blanco);
-    color: var(--azul);
+    color: var(--oscuro);
     font-family: var(--font);
     font-size: 12px;
     font-weight: 600;
