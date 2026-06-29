@@ -1,0 +1,239 @@
+/* =============================================
+   BRUSCO ESTUDIO — proyecto.css
+   Estilos para las páginas individuales de proyecto.
+   Se carga junto con styles.css (que define variables y header).
+
+   ÍNDICE:
+   1. Hero del proyecto
+   2. Galería estilo Behance
+   3. Navegación entre proyectos
+   ============================================= */
+
+
+/* =============================================
+   0. FONDO BLANCO — override para páginas de proyecto
+   ============================================= */
+body {
+    background-color: var(--blanco);
+    color: var(--azul);
+}
+
+.nav__link {
+    color: var(--azul);
+}
+
+.nav__link::after {
+    background: var(--azul);
+}
+
+.header__logo path {
+    fill: var(--azul);
+}
+
+.header.scrolled {
+    background: rgba(246, 246, 246, 0.88);
+    border-bottom-color: rgba(37, 64, 217, 0.1);
+}
+
+.proyecto-nav {
+    border-top-color: rgba(37, 64, 217, 0.12);
+}
+
+.footer {
+    background-color: var(--blanco);
+    color: var(--azul);
+    border-top-color: rgba(37, 64, 217, 0.12);
+}
+
+.footer__copy {
+    opacity: 0.6;
+    font-weight: 400;
+}
+
+
+/* =============================================
+   1. HERO DEL PROYECTO
+   Para cambiar el tamaño del título: editar font-size en .proyecto-hero__titulo
+   Para cambiar info de meta: editar el HTML
+   ============================================= */
+.proyecto-hero {
+    min-height: 55vh;
+    padding-top: calc(var(--header-h) + clamp(60px, 10vh, 100px));
+    padding-bottom: clamp(48px, 7vh, 88px);
+    padding-left: var(--pad-x);
+    padding-right: var(--pad-x);
+    display: flex;
+    align-items: flex-end;
+}
+
+.proyecto-hero__inner { width: 100%; }
+
+.proyecto-hero__cat {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-bottom: 20px;
+}
+
+/* Título principal del proyecto
+   Para cambiar tamaño: editar font-size */
+.proyecto-hero__titulo {
+    font-size: clamp(36px, 6.5vw, 96px);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-bottom: 36px;
+}
+
+/* Metadatos: cliente, año, tipo */
+.proyecto-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(20px, 4vw, 56px);
+}
+
+.proyecto-hero__meta span {
+    font-size: clamp(13px, 1.1vw, 15px);
+    font-weight: 500;
+    opacity: 0.6;
+}
+
+.proyecto-hero__meta strong {
+    font-weight: 600;
+    color: var(--azul);
+    opacity: 1;
+}
+
+
+/* =============================================
+   2. GALERÍA ESTILO BEHANCE
+   Composición flexible de imágenes:
+
+   — Imagen full-width:   .galeria__full > img
+   — Par de imágenes:     .galeria__row  > .galeria__half > img
+   — Imagen vertical:     .galeria__full con aspect-ratio diferente
+
+   Para cambiar el espacio entre imágenes: editar gap en .proyecto-galeria
+   Para cambiar aspect-ratio de full: editar aspect-ratio en .galeria__full img
+   Para cambiar aspect-ratio de half: editar aspect-ratio en .galeria__half img
+   ============================================= */
+.proyecto-galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background-color: rgba(37, 64, 217, 0.08);
+}
+
+/* Bloque de texto entre imágenes */
+.galeria__texto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 6vw, 80px);
+    padding: clamp(48px, 8vw, 100px) var(--pad-x);
+    background-color: var(--blanco);
+}
+
+.galeria__texto__lang {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    opacity: 0.4;
+    margin-bottom: 20px;
+}
+
+.galeria__texto p {
+    font-size: clamp(13px, 1.1vw, 15px);
+    font-weight: 400;
+    line-height: 1.75;
+    opacity: 0.7;
+    margin-bottom: 16px;
+}
+
+.galeria__texto p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .galeria__texto {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Imagen que ocupa todo el ancho */
+.galeria__full img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    /* Fondo placeholder mientras carga */
+    background: rgba(246, 246, 246, 0.05);
+}
+
+/* Variante más alta (útil para imágenes de portada o cierre) */
+.galeria__full--tall img {
+    aspect-ratio: 4 / 3;
+}
+
+/* Fila de imágenes — siempre una columna, mismo ancho que full */
+.galeria__row {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+/* Cada imagen ocupa todo el ancho con la misma proporción que full */
+.galeria__half img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    background: rgba(246, 246, 246, 0.05);
+}
+
+/* Variante cuadrada */
+.galeria__half--sq img {
+    aspect-ratio: 1 / 1;
+}
+
+
+/* =============================================
+   3. NAVEGACIÓN ENTRE PROYECTOS
+   Para añadir link al proyecto siguiente:
+   descomentar .proyecto-nav__sig en el HTML
+   ============================================= */
+.proyecto-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(40px, 6vh, 80px) var(--pad-x);
+    border-top: 1px solid rgba(246, 246, 246, 0.08);
+}
+
+.proyecto-nav__volver,
+.proyecto-nav__sig {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    transition: opacity 0.25s ease;
+}
+
+.proyecto-nav__volver:hover,
+.proyecto-nav__sig:hover {
+    opacity: 1;
+}
+
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+    .proyecto-hero__meta {
+        gap: 16px;
+    }
+}

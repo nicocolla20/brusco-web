@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Para cambiar título y descripción de este proyecto: editar title y description -->
+    <title>Guardería Canina Colonia — Identidad Visual · Brusco Estudio</title>
+    <meta name="description" content="Proyecto de identidad visual para Guardería Canina Colonia. Diseño de marca, logotipo y aplicaciones desarrollado por Brusco Estudio.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bruscoestudio.com/proyecto-guarderia-canina.html">
+
+    <meta property="og:type"        content="article">
+    <meta property="og:url"         content="https://bruscoestudio.com/proyecto-guarderia-canina.html">
+    <meta property="og:title"       content="Sum Impresión Digital — Brusco Estudio">
+    <meta property="og:description" content="Proyecto de identidad visual completa para Sum Impresión Digital.">
+    <meta property="og:image"       content="https://bruscoestudio.com/assets/portada.gif">
+    <meta property="og:site_name"   content="Brusco Estudio">
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="proyecto.css">
+</head>
+<body>
+
+    <!-- =============================================
+         HEADER (igual al de index.html)
+         Los links llevan de regreso al índice principal
+    ============================================= -->
+    <header class="header" id="header">
+        <div class="header__inner">
+            <a href="index.html" class="header__logo">
+                <svg width="48" height="30" viewBox="0 0 332 207" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M271.006 87.5316L255.914 111.678L223.618 88.4371L242.03 66.7051L241.125 63.6868L213.96 56.7446L226.033 19.0155L252.896 30.4851L255.311 28.3723L252.896 0L292.738 0L290.323 28.3723L292.738 30.4851L319.903 19.3173L331.674 57.0464L303.906 63.6868L302.698 66.7051L321.412 88.4371L288.814 111.98L274.628 87.5316H271.006Z" fill="#F6F6F6"/>
+                    <path d="M135.523 206.455L-7.39098e-06 206.455L-7.39098e-06 4.22656L128.581 4.22656C143.27 4.22656 155.444 6.13817 165.103 9.96139C174.761 13.5834 182.005 19.0164 186.835 26.2604C191.664 33.5044 194.079 42.4587 194.079 53.1235C194.079 66.0017 190.255 76.6665 182.609 85.1178C175.164 93.5691 162.185 98.1972 143.673 99.0021V102.02C163.996 102.825 178.987 107.554 188.646 116.207C198.505 124.859 203.435 136.228 203.435 150.314C203.435 161.582 201.121 171.442 196.493 179.893C191.865 188.345 184.521 194.884 174.459 199.512C164.6 204.141 151.621 206.455 135.523 206.455ZM56.4428 127.374V155.445L128.279 155.445C135.121 155.445 139.749 154.539 142.163 152.728C144.779 150.716 146.087 146.893 146.087 141.259C146.087 135.625 144.88 131.902 142.465 130.091C140.051 128.28 135.322 127.374 128.279 127.374H56.4428ZM56.4428 55.2363L56.4428 80.8921H122.544C128.38 80.8921 132.303 79.9866 134.316 78.1756C136.328 76.1634 137.334 72.8433 137.334 68.2152C137.334 63.587 136.026 60.2669 133.41 58.2547C130.996 56.2424 126.87 55.2363 121.035 55.2363L56.4428 55.2363Z" fill="#F6F6F6"/>
+                </svg>
+            </a>
+            <nav class="header__nav">
+                <a href="index.html#nosotros"  class="nav__link">Brusco</a>
+                <a href="index.html#proyectos" class="nav__link">Proyectos</a>
+                <a href="index.html#contacto"  class="nav__link">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- =============================================
+         HERO DEL PROYECTO
+         Para editar: cambiar los textos de categoría, título y metadatos
+    ============================================= -->
+    <section class="proyecto-hero">
+        <div class="proyecto-hero__inner">
+
+            <!-- Categoría: tipo de trabajo -->
+            <span class="proyecto-hero__cat">Identidad Visual</span>
+
+            <!-- Título del proyecto -->
+            <h1 class="proyecto-hero__titulo">Sum Impresión Digital</h1>
+
+            <!-- Metadatos: editar cliente, año y servicio -->
+            <div class="proyecto-hero__meta">
+                <span>Cliente: <strong>Sum Impresión Digital</strong></span>
+                <span>Año: <strong>2026</strong></span>
+                <span>Servicio: <strong>Branding completo</strong></span>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         GALERÍA DEL PROYECTO — composición estilo Behance
+
+         TIPOS DE BLOQUE disponibles:
+
+         1) Imagen full-width:
+            <div class="galeria__full">
+                <img src="assets/imagen.jpg" alt="descripción">
+            </div>
+
+         2) Par de imágenes lado a lado:
+            <div class="galeria__row">
+                <div class="galeria__half"><img src="..." alt="..."></div>
+                <div class="galeria__half"><img src="..." alt="..."></div>
+            </div>
+
+         3) Full-width más alta (4:3):
+            <div class="galeria__full galeria__full--tall">
+                <img src="..." alt="...">
+            </div>
+
+         Para agregar imágenes: duplicar cualquiera de los bloques anteriores
+         Para quitar imágenes: eliminar el bloque completo
+         Reemplazar cada src="assets/..." por la ruta real de tu imagen
+    ============================================= -->
+    <div class="proyecto-galeria">
+
+        <div class="galeria__full">
+            <img src="assets/sum/sum1.png" alt="Guardería Canina — Vista general">
+        </div>
+
+                <!-- Bloque de texto bilingüe -->
+        <div class="galeria__texto">
+            <div class="galeria__texto__col">
+                <span class="galeria__texto__lang">ES.</span>
+                <p>SUM nace del cruce entre la impresión de alta calidad y el trabajo artesanal. La marca necesitaba expresar esa dualidad con claridad: por un lado, precisión, confianza y resolución; por otro, cercanía, detalle y el valor de lo hecho a mano.</p>
+                <p>El logotipo parte de una estructura tipográfica clara y firme, que refuerza la idea de precisión y profesionalismo. Sobre esa base, la “U” incorpora un gesto más orgánico que remite al hilo, al recorrido manual y al universo de la encuadernación, sintetizando uno de los rasgos más propios de la marca.</p>
+            </div>
+            <div class="galeria__texto__col">
+                <span class="galeria__texto__lang">EN.</span>
+                <p>SUM emerges from the intersection of high-quality printing and handcrafted work. The brand needed to express that duality clearly: on one side, precision, trust, and efficiency; on the other, warmth, detail, and the value of making things by hand.</p>
+                <p>The logotype is built from a clear and solid typographic structure, reinforcing the idea of precision and professionalism. On top of that, the “U” introduces a more organic gesture that evokes thread, manual movement, and the world of bookbinding, synthesizing one of the brand’s most distinctive traits.</p>
+            </div>
+        </div>
+
+        <div class="galeria__full">
+            <img src="assets/sum/sum2.png" alt="Guardería Canina — Vista general">
+        </div>
+
+        <div class="galeria__full">
+            <img src="assets/sum/sum3.png" alt="Guardería Canina — Vista general">
+        </div>
+
+        <div class="galeria__full">
+            <img src="assets/sum/sum4.png" alt="Guardería Canina — Vista general">
+        </div>
+
+        <div class="galeria__full">
+            <img src="assets/sum/sum5.png" alt="Guardería Canina — Vista general">
+        </div>
+
+        <div class="galeria__full">
+            <img src="assets/sum/sum6.png" alt="Guardería Canina — Vista general">
+        </div>
+
+        <div class="galeria__full">
+            <img src="assets/sum/sum7.png" alt="Guardería Canina — Vista general">
+        </div>
+
+        <div class="galeria__full">
+            <img src="assets/sum/sum8.png" alt="Guardería Canina — Vista general">
+        </div>
+
+                <div class="galeria__full">
+            <img src="assets/sum/sum9.png" alt="Guardería Canina — Vista general">
+        </div>
+
+        <div class="galeria__full">
+            <img src="assets/sum/sum10.png" alt="Guardería Canina — Vista general">
+        </div>
+
+    </div>
+
+
+    <!-- =============================================
+         NAVEGACIÓN ENTRE PROYECTOS
+         Para agregar link al siguiente proyecto:
+         descomentar el <a class="proyecto-nav__sig"> y editar el href
+    ============================================= -->
+    <div class="proyecto-nav">
+        <a href="index.html#proyectos" class="proyecto-nav__volver">← Todos los proyectos</a>
+        <!-- <a href="proyecto-2.html" class="proyecto-nav__sig">Siguiente proyecto →</a> -->
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <span class="footer__copy">© 2026 Brusco Estudio. Todos los derechos reservados.</span>
+        </div>
+    </footer>
+
+    <!-- script.js maneja el header con fondo al hacer scroll -->
+    <script src="script.js"></script>
+</body>
+</html>

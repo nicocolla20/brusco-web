@@ -1,0 +1,766 @@
+/* =============================================
+   BRUSCO ESTUDIO — styles.css
+
+   ÍNDICE
+   1.  Variables & Reset
+   2.  Header
+   3.  Nosotros / Hero
+   4.  Servicios
+   5.  Marquee
+   6.  Proyectos
+   7.  Contacto
+   8.  Footer
+   9.  Responsive
+   ============================================= */
+
+
+/* =============================================
+   1. VARIABLES & RESET
+   Para cambiar el color azul principal: editar --azul
+   Para cambiar el blanco: editar --blanco
+   Para cambiar la fuente: editar --font
+   ============================================= */
+:root {
+    --azul:          #2540D9;
+    --blanco:        #F6F6F6;
+    --oscuro:        #1a1444;
+    --font:          'Clash Display', sans-serif;
+    --header-h:      76px;
+    --pad-x:         clamp(24px, 8vw, 120px);
+    --gap-section:   clamp(80px, 12vh, 140px);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--azul);
+    color: var(--blanco);
+    font-family: var(--font);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Transición del fondo al entrar/salir de la sección Proyectos */
+    transition: background-color 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* =============================================
+   MODO BLANCO — activo solo en sección Proyectos
+   La clase .modo-blanco la agrega/quita script.js
+   con IntersectionObserver al hacer scroll
+   ============================================= */
+body.modo-blanco {
+    background-color: var(--blanco);
+}
+
+/* Secciones que siempre mantienen el fondo azul */
+.nosotros,
+.marquee-section {
+    background-color: var(--azul);
+}
+
+/* Fondo oscuro — sección Contacto */
+body.modo-oscuro {
+    background-color: var(--oscuro);
+}
+
+/* Header al hacer scroll en modo oscuro */
+body.modo-oscuro .header.scrolled {
+    background: rgba(26, 20, 68, 0.85);
+    border-bottom-color: rgba(246, 246, 246, 0.08);
+}
+
+/* Header en modo blanco: texto y logo cambian a azul */
+body.modo-blanco .nav__link {
+    color: var(--azul);
+}
+
+body.modo-blanco .nav__link::after {
+    background: var(--azul);
+}
+
+/* Logo SVG: los paths tienen fill como atributo HTML,
+   pero CSS lo puede sobreescribir */
+body.modo-blanco .header__logo path {
+    fill: var(--azul);
+}
+
+/* Fondo del header al hacer scroll en modo blanco */
+body.modo-blanco .header.scrolled {
+    background: rgba(246, 246, 246, 0.88);
+    border-bottom-color: rgba(37, 64, 217, 0.1);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =============================================
+   2. HEADER
+   Para cambiar la altura del header: editar --header-h en :root
+   El fondo aparece translúcido al hacer scroll (clase .scrolled agregada por JS)
+   ============================================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-h);
+    padding: 0 var(--pad-x);
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    transition: background 0.5s ease, border-color 0.5s ease;
+    border-bottom: 1px solid transparent;
+}
+
+/* Fondo que aparece al hacer scroll */
+.header.scrolled {
+    background: rgba(37, 64, 217, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom-color: rgba(246, 246, 246, 0.08);
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+/* Transición suave del color del logo al cambiar de sección */
+.header__logo path {
+    transition: fill 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.header__logo:hover { opacity: 0.65; }
+
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 3.5vw, 48px);
+}
+
+/* Links del menú
+   Para cambiar tamaño: editar font-size
+   Para cambiar peso: editar font-weight */
+.nav__link {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blanco);
+    opacity: 0.55;
+    transition: opacity 0.25s ease;
+    position: relative;
+}
+
+/* Línea animada debajo del link al hover */
+.nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--blanco);
+    transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav__link:hover         { opacity: 1; }
+.nav__link:hover::after  { width: 100%; }
+
+
+/* =============================================
+   3. NOSOTROS / HERO
+   Para cambiar tamaño de la frase principal: editar font-size en .headline__static
+   Para cambiar tamaño de la palabra animada: editar font-size en #palabra-animada
+   ============================================= */
+.nosotros {
+    min-height: 100vh;
+    padding-top: calc(var(--header-h) + clamp(60px, 10vh, 100px));
+    padding-bottom: var(--gap-section);
+    padding-left: var(--pad-x);
+    padding-right: var(--pad-x);
+    display: flex;
+    align-items: flex-start;
+}
+
+.nosotros__inner {
+    width: 100%;
+}
+
+/* Bloque de frase animada */
+.nosotros__headline {
+    margin-bottom: clamp(48px, 7vh, 88px);
+    line-height: 0.95;
+}
+
+.headline__line {
+    overflow: hidden; /* necesario para que la animación no se vea fuera */
+}
+
+/* "El cambio" y "que tu marca necesita." */
+.headline__static {
+    display: block;
+    font-size: clamp(52px, 8.5vw, 128px);
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    opacity: 0.88;
+}
+
+/* Contenedor de altura fija para la palabra que cambia */
+.headline__line--animated {
+    height: clamp(68px, 11.5vw, 172px);
+    display: flex;
+    align-items: center;
+}
+
+/* La palabra animada: BRUSCO, RADICAL, etc.
+   Para cambiar el estilo de esta palabra: editar aquí */
+#palabra-animada {
+    display: inline-block;
+    font-size: clamp(68px, 11.5vw, 172px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--blanco);
+    /* Las clases .saliendo y .entrando las agrega script.js */
+    transition: transform 0.48s cubic-bezier(0.76, 0, 0.24, 1),
+                opacity  0.48s ease;
+}
+
+#palabra-animada.saliendo {
+    transform: translateY(-110%);
+    opacity: 0;
+}
+
+#palabra-animada.entrando {
+    transform: translateY(110%);
+    opacity: 0;
+    transition: none; /* sin transición al reposicionarse abajo */
+}
+
+
+/* =============================================
+   DESCRIPCIÓN DEL ESTUDIO
+   Para cambiar el ancho máximo del párrafo: editar max-width
+   ============================================= */
+.nosotros__bio {
+    max-width: 520px;
+    margin-bottom: clamp(48px, 7vh, 88px);
+}
+
+.bio__text {
+    font-size: clamp(15px, 1.35vw, 18px);
+    font-weight: 300;
+    line-height: 1.8;
+    opacity: 0.7;
+}
+
+.bio__text strong {
+    font-weight: 500;
+    color: var(--blanco);
+    opacity: 1;
+}
+
+
+/* =============================================
+   4. SERVICIOS — Cards con glassmorfismo
+   Para cambiar columnas: editar grid-template-columns
+   Para agregar/quitar cards: editar el HTML en index.html
+   ============================================= */
+.nosotros__servicios {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid rgba(246, 246, 246, 0.12);
+}
+
+.servicio-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: clamp(24px, 2.8vw, 40px);
+    background: rgba(246, 246, 246, 0.03);
+    border-right: 1px solid rgba(246, 246, 246, 0.12);
+    transition: background 0.35s ease;
+    cursor: default;
+}
+
+.servicio-card:last-child { border-right: none; }
+
+.servicio-card:hover {
+    background: rgba(246, 246, 246, 0.09);
+}
+
+/* Título del servicio
+   Para cambiar tamaño: editar font-size */
+.servicio-card__titulo {
+    font-size: clamp(15px, 1.4vw, 19px);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.servicio-card__desc {
+    font-size: clamp(12px, 0.95vw, 14px);
+    font-weight: 300;
+    line-height: 1.55;
+    opacity: 0.5;
+}
+
+
+/* =============================================
+   5. MARQUEE / LOGOS
+   Para cambiar la velocidad: editar "24s" en @keyframes o ir a script.js
+   Para pausar al hover: .marquee__belt:hover { animation-play-state: paused; }
+   ============================================= */
+.marquee-section {
+    padding: clamp(28px, 3.5vw, 52px) 0;
+    border-top:    1px solid rgba(246, 246, 246, 0.1);
+    border-bottom: 1px solid rgba(246, 246, 246, 0.1);
+    overflow: hidden;
+}
+
+.marquee__track {
+    overflow: hidden;
+}
+
+/* El belt contiene los dos grupos y es lo que se anima */
+.marquee__belt {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 24s linear infinite;
+}
+
+/* Para cambiar la velocidad del marquee: editar el primer valor (24s) */
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+.marquee__group {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.marquee__item {
+    font-size: clamp(12px, 1.1vw, 15px);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.4;
+    padding: 0 clamp(28px, 3vw, 52px);
+    white-space: nowrap;
+    transition: opacity 0.25s ease;
+}
+
+.marquee__item:hover { opacity: 0.9; }
+
+.marquee__item img {
+    height: 36px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+}
+
+.marquee__sep {
+    opacity: 0.2;
+    font-size: 9px;
+}
+
+
+/* =============================================
+   6. PROYECTOS
+   Para cambiar columnas de la grilla: editar grid-template-columns
+   Para cambiar el aspect-ratio de las cards: editar aspect-ratio en .proyecto-card__img-wrap
+   ============================================= */
+.proyectos {
+    padding: var(--gap-section) var(--pad-x);
+}
+
+/* Etiqueta de sección (usada también en Contacto) */
+.section__label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.35;
+    margin-bottom: clamp(32px, 5vh, 56px);
+}
+
+/* En proyectos el fondo es blanco, el label debe ser azul */
+.proyectos .section__label {
+    color: var(--azul);
+}
+
+.proyectos__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+}
+
+/* Para 3 columnas en pantallas muy anchas: descomentar */
+/* @media (min-width: 1500px) { .proyectos__grid { grid-template-columns: repeat(3, 1fr); } } */
+
+.proyecto-card {
+    overflow: hidden;
+}
+
+.proyecto-card__link { display: block; }
+
+.proyecto-card__img-wrap {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    /* Fondo placeholder mientras carga la imagen */
+    background: rgba(246, 246, 246, 0.05);
+}
+
+.proyecto-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Zoom sutil al hacer hover */
+.proyecto-card__link:hover .proyecto-card__img {
+    transform: scale(1.05);
+}
+
+/* Overlay que aparece al hover */
+.proyecto-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--card-color, var(--azul)) 80%, transparent);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(20px, 2.5vw, 36px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.proyecto-card__link:hover .proyecto-card__overlay {
+    opacity: 1;
+}
+
+/* Nombre del proyecto en el overlay
+   Para cambiar tamaño: editar font-size */
+.proyecto-card__nombre {
+    font-size: clamp(18px, 2.2vw, 30px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+}
+
+.proyecto-card__tipo {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.55;
+}
+
+
+/* =============================================
+   7. CONTACTO
+   Para conectar el formulario a email real:
+   ver comentario en index.html sección CONTACTO
+   ============================================= */
+.contacto {
+    padding: var(--gap-section) var(--pad-x);
+    border-top: 1px solid rgba(246, 246, 246, 0.08);
+}
+
+.contacto__inner {
+    max-width: 860px;
+}
+
+.contacto__header {
+    margin-bottom: clamp(48px, 7vh, 80px);
+}
+
+/* Título grande del formulario
+   Para cambiar: editar font-size */
+.contacto__titulo {
+    font-size: clamp(32px, 5vw, 64px);
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    margin-top: 20px;
+    max-width: 520px;
+}
+
+.contacto__form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Fila de dos campos en paralelo */
+.form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(32px, 5vw, 72px);
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(20px, 2.5vh, 30px) 0;
+    border-bottom: 1px solid rgba(246, 246, 246, 0.18);
+    transition: border-color 0.3s ease;
+}
+
+.form__group:focus-within {
+    border-color: rgba(246, 246, 246, 0.7);
+}
+
+/* Para que el campo de mensaje ocupe todo el ancho */
+.form__group--full {
+    grid-column: 1 / -1;
+}
+
+.form__label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.35;
+    margin-bottom: 10px;
+    transition: opacity 0.25s ease;
+}
+
+.form__group:focus-within .form__label {
+    opacity: 0.75;
+}
+
+/* Estilo base para input, select y textarea */
+.form__input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--blanco);
+    font-family: var(--font);
+    font-size: clamp(15px, 1.3vw, 18px);
+    font-weight: 300;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.form__input::placeholder {
+    color: rgba(246, 246, 246, 0.22);
+}
+
+/* =============================================
+   SELECT — estilo glass personalizado
+   El contenedor del select recibe position: relative
+   para poder dibujar la flecha con ::after
+   ============================================= */
+
+/* Posición relativa en el group que contiene el select */
+.form__group:has(.form__select) {
+    position: relative;
+}
+
+/* Flecha personalizada — reemplaza la del browser */
+.form__group:has(.form__select)::after {
+    content: '';
+    position: absolute;
+    right: 2px;
+    bottom: clamp(28px, 3.2vh, 38px);
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid rgba(246, 246, 246, 0.35);
+    border-bottom: 1.5px solid rgba(246, 246, 246, 0.35);
+    transform: rotate(45deg);
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.3s ease;
+}
+
+/* La flecha rota hacia arriba cuando el select está en foco */
+.form__group:has(.form__select):focus-within::after {
+    transform: rotate(225deg) translateY(4px);
+    border-color: rgba(246, 246, 246, 0.85);
+}
+
+/* El select mismo: glass igual que el overlay de proyectos */
+.form__select {
+    cursor: pointer;
+    padding-right: 20px;
+    background: rgba(246, 246, 246, 0.06);
+    border-radius: 0;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.form__select:hover {
+    background: rgba(246, 246, 246, 0.11);
+}
+
+.form__select:focus {
+    background: rgba(246, 246, 246, 0.09);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    outline: none;
+}
+
+/* Opciones: fondo azul explícito para que no queden grises */
+.form__select option {
+    background: var(--oscuro);
+    color: var(--blanco);
+}
+
+/* Textarea: altura mínima y sin resize horizontal */
+.form__textarea {
+    min-height: 110px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.form__submit-wrap {
+    margin-top: clamp(36px, 5vh, 60px);
+}
+
+/* Botón de envío
+   Para cambiar el estilo: editar aquí */
+.form__submit {
+    display: inline-block;
+    background: var(--blanco);
+    color: var(--oscuro);
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 18px 44px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease,
+                color     0.3s ease,
+                transform 0.2s ease;
+}
+
+.form__submit:hover {
+    background: rgba(246, 246, 246, 0.82);
+    transform: translateY(-2px);
+}
+
+.form__submit:active {
+    transform: translateY(0);
+}
+
+/* Estado desactivado (después de enviar) */
+.form__submit:disabled {
+    opacity: 0.6;
+    cursor: default;
+    transform: none;
+}
+
+
+/* =============================================
+   8. FOOTER
+   Para editar el texto: modificar index.html
+   ============================================= */
+.footer {
+    padding: clamp(24px, 3vh, 40px) var(--pad-x);
+    border-top: 1px solid rgba(246, 246, 246, 0.07);
+}
+
+.footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__copy {
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    opacity: 0.25;
+}
+
+
+/* =============================================
+   9. RESPONSIVE
+   Breakpoints:
+   - < 1024px: tablet — servicios en 2 columnas
+   - < 768px:  móvil  — todo en columna simple
+   ============================================= */
+@media (max-width: 1024px) {
+    .nosotros__servicios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .servicio-card:nth-child(2) { border-right: none; }
+    .servicio-card:nth-child(3) { border-top: 1px solid rgba(246, 246, 246, 0.12); }
+    .servicio-card:nth-child(4) { border-top: 1px solid rgba(246, 246, 246, 0.12); }
+}
+
+@media (max-width: 768px) {
+    .nosotros__servicios {
+        grid-template-columns: 1fr;
+    }
+
+    .servicio-card {
+        border-right: none;
+        border-top: 1px solid rgba(246, 246, 246, 0.12);
+    }
+
+    .servicio-card:first-child { border-top: none; }
+
+    .proyectos__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form__row {
+        grid-template-columns: 1fr;
+    }
+
+    .header__nav {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav__link { font-size: 11px; }
+
+    /* Reducir la frase animada en móvil para que palabras largas
+       como DISRUPTIVO o NECESARIO no desborden la pantalla */
+    .headline__static {
+        font-size: clamp(34px, 10vw, 52px);
+    }
+
+    .headline__line--animated {
+        height: clamp(42px, 13vw, 68px);
+    }
+
+    #palabra-animada {
+        font-size: clamp(42px, 13vw, 68px);
+    }
+}

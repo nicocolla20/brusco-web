@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    SITEMAP — bruscoestudio.com
+    Este archivo le dice a Google qué páginas existen en el sitio.
+
+    Para agregar un proyecto nuevo:
+    1. Duplicar el bloque <url>...</url> de cualquier proyecto
+    2. Cambiar <loc> por la URL de la nueva página
+    3. Actualizar <lastmod> con la fecha de hoy (formato AAAA-MM-DD)
+
+    Después de cada cambio: subir a GitHub y reenviar el sitemap
+    desde Google Search Console (https://search.google.com/search-console)
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Página principal -->
+    <url>
+        <loc>https://bruscoestudio.com/</loc>
+        <lastmod>2026-05-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Proyecto: Guardería Canina -->
+    <url>
+        <loc>https://bruscoestudio.com/proyecto-guarderia-canina.html</loc>
+        <lastmod>2026-05-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Proyecto: Sum Impresión Digital -->
+    <url>
+        <loc>https://bruscoestudio.com/proyecto-sum-impresion-digital.html</loc>
+        <lastmod>2026-05-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Proyecto: Plaza Mayor -->
+    <url>
+        <loc>https://bruscoestudio.com/proyecto-plaza-mayor.html</loc>
+        <lastmod>2026-06-29</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Agregar más proyectos aquí -->
+
+</urlset>

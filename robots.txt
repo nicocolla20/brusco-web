@@ -1,0 +1,9 @@
+# ROBOTS.TXT — bruscoestudio.com
+# Le dice a los bots de Google y otros buscadores
+# qué pueden rastrear y dónde está el mapa del sitio.
+# No tocar a menos que quieras bloquear algo específico.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://bruscoestudio.com/sitemap.xml
