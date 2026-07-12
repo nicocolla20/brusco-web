@@ -45,6 +45,14 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Proyecto: Nancy -->
+    <url>
+        <loc>https://bruscoestudio.com/proyecto-nancy.html</loc>
+        <lastmod>2026-07-12</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Agregar más proyectos aquí -->
 
 </urlset>
